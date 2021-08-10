@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About!{% endblock %}
+{% block content %}
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Uchen&display=swap');
+
+  h1{
+    font-family: 'Otomanopee One', sans-serif;
+    letter-spacing: 1.6px;
+  }
+  .outer{
+      border-bottom: 4px solid rgba(41, 41, 41, 1);
+      border-spacing:60px;
+      min-width: 150px;
+      min-height: 150px;
+  }
+  .top{
+    padding-left:90px;
+    padding-right:40px;
+    text-align:center;
+  }
+  .column {
+  float: left;
+  width: 48.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.text{
+  font-family: 'Merriweather', serif;
+  letter-spacing: 2px;
+}
+</style>
+
+<br><br><br>
+<div class="outer">
+  <div class="top">
+    <h1>Give your voice a chance with LaBlog</h1>
+  </div>
+</div>
+<br><br><br><br>
+<div class="row">
+  <div class="column">
+    <div class="container">
+      <p class="text">A thought can change what others think or know. To make those thoughts <br>
+        reach others we made LaBlog where anyone can share their stories and views about any topic.
+      </p>
+      <p class="text">LaBlog is an open platform for people who want their thoughts to give shape of words.<br>
+      </p>
+      <p class="text">Here writers can spread their stories without any complication and readers can find any information about any topic.
+      <br>
+        LaBlog is free to anyone, there is no cost of registering and creating blogs.
+      <br>  Anyone can write on LaBlog.
+      </p>
+    </div>
+
+  </div>
+  <div class="column">
+    <img src="{% static 'blog/images/about.jpg' %}" alt="Forest" style="width:100%">
+  </div>
+  </div>
+
+<br><br><br>
+
+{% endblock %}

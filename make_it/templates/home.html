@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block title %}{{ post.title_tag }}{% endblock %}
+
+
+    <div id="root">
+        <div class="a b c">
+          <div class="ji" id="header-background-color">
+            <div class="ae af ag">
+
+              <br>
+
+              <div class="hi" id="header-background-color">
+                <div class="af db dc dd de df dg dh">
+                  <span class="af h ce bw bx by">
+                    <div class="ji" id="header-headline">
+                      <h1 class="dz b ea eb ec ed ee">Got a thought <br> Why not share it with us.</h1>
+                      <div class="img" align="right">
+              <!---      <img src="{% static 'blog/images/trns icon.png' %}" alt="" align= "right">   --->
+
+                      </div>
+
+                    </div>
+                  </span>
+                  <br><br>
+                      <div class="cw"></div>
+                      <div class="ej af du dv ek dx dy">
+                        <span class="af h g bw bx by">
+                          <h3 class="ca b el em cd">
+                            <span class="hi" id="header-subhead-copy">Read and share about any topic as much as you want.</span>
+                            <span class="hi" id="header-subhead-link">
+                              <a href="{% url 'about' %}" class="bd be bf bg bh bi bj bk bl bm bp bq br en" rel="noopener">Learn more.</a>
+                            </span>
+                          </h3>
+                        </span>
+                      </div>
+                      <br><br>
+                      <div class="ji" style="text-align: center;" id="header-get-started-button">
+                        <div class="firstb" action="#">
+                          <span>
+                            {% if user.is_authenticated %}
+
+                            <button class="button"><a href="{% url 'add_post' %}">Get Started</a></button>
+                            {% else %}
+
+                              <button class="button"><a href="{% url 'register'%}">Get Started</a></button>
+
+                            {% endif %}
+                          </span>
+                        </div>
+                      </div>
+                      <br><br>
+                    </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+  <div class="container">
+
+  	<h1>Posts</h1>
+    <br>
+
+  	<ul>
+  	{% for post in object_list %}
+  			 {{ post.author }} -
+  			<small>{{ post.post_date }}</small>
+  			<li><a href="{% url 'post_details' post.pk %}">{{ post.title }}</a>
+  				- <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
+
+
+  		 {% if user.is_authenticated %}
+          	{% if user.id == post.author.id %}
+      				<small>-<a href="{% url 'update_post' post.pk %}">Edit</a><br>
+
+      					<a href="{% url 'delete_post' post.pk %}">Delete</a>
+              {% endif %}
+  		{% endif %}
+
+  		</small><br><br>
+      <div class="sni">
+        {{ post.snippet }}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {% if post.header_image %}
+        	 <img src="{{ post.header_image.url }}" width="100" height="100">
+        	{% endif %}
+
+      </div>
+
+      </li>
+  		<br>
+
+  	{% endfor %}
+  	</ul>
+
+  		</div>
+
+<br><br><br><br>
+
+{% endblock %}
