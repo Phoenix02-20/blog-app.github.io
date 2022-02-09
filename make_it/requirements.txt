@@ -21,7 +21,7 @@ matplotlib-inline==0.1.2
 module-name==0.5.1
 parso==0.8.2
 pickleshare==0.7.5
-Pillow==8.3.0
+Pillow==9.0.0
 plumbum==1.7.0
 prompt-toolkit==3.0.19
 psycopg2 @ file:///C:/ci/psycopg2_1612298766762/work
